@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { TemplateRoutingModule } from './template-routing.module';
 import { BasicosComponent } from './components/basicos/basicos.component';
@@ -12,6 +13,6 @@ import { SwitchesComponent } from './components/switches/switches.component';
     DinamicosComponent,
     SwitchesComponent
   ],
-  imports: [CommonModule, TemplateRoutingModule],
+  imports: [CommonModule, TemplateRoutingModule, FormsModule],
 })
 export class TemplateModule {}

@@ -13,7 +13,7 @@
             class="form-control"
             placeholder="Nombre del Producto"
             name="producto"
-            ngModel
+            [ngModel]="initForm.producto"
             required
             minlength="3"
           />
@@ -32,7 +32,7 @@
             class="form-control"
             placeholder="Precio"
             name="precio"
-            ngModel
+            [ngModel]="initForm.precio"
             required
             min="0"
           />
@@ -51,12 +51,12 @@
             class="form-control"
             placeholder="Existencias"
             name="existencias"
-            ngModel
+            [ngModel]="initForm.existencias"
             required
-            min="1"
+            min="0"
           />
           <span class="form-text text-danger" *ngIf="existenciaInvalida()">
-            La cantidad debe ser mayor a 0
+            La cantidad debe de ser mayor o igual a 0
           </span>
         </div>
       </div>

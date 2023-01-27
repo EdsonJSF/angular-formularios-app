@@ -17,7 +17,7 @@
             required
             minlength="3"
           />
-          <span class="form-text text-danger" *ngIf="nombreValido()">
+          <span class="form-text text-danger" *ngIf="nombreInvalido()">
             Debe de ser de 3 letras
           </span>
         </div>
@@ -36,7 +36,7 @@
             required
             min="0"
           />
-          <span class="form-text text-danger" *ngIf="precioValido()">
+          <span class="form-text text-danger" *ngIf="precioInvalido()">
             El precio debe de ser mayor o igual a 0
           </span>
         </div>
@@ -53,7 +53,11 @@
             name="existencias"
             ngModel
             required
+            min="1"
           />
+          <span class="form-text text-danger" *ngIf="existenciaInvalida()">
+            La cantidad debe ser mayor a 0
+          </span>
         </div>
       </div>
 

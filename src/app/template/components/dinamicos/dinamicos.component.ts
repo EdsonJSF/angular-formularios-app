@@ -18,10 +18,7 @@ export class DinamicosComponent {
   nuevoJuego: string = '';
   persona: Persona = {
     nombre: 'Edson',
-    favoritos: [
-      { id: 1, nombre: 'Metal Gear' },
-      { id: 2, nombre: 'Metal Gear 2' },
-    ],
+    favoritos: [],
   };
 
   guardar() {

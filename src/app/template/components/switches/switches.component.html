@@ -9,6 +9,9 @@
         <input
           class="form-check-input"
           type="radio"
+          value="M"
+          [(ngModel)]="persona.genero"
+          required
           name="radioGenero"
           id="radioMasculino"
         />
@@ -18,9 +21,11 @@
         <input
           class="form-check-input"
           type="radio"
+          value="F"
+          [(ngModel)]="persona.genero"
+          required
           name="radioGenero"
           id="radioFemenino"
-          checked
         />
         <label class="form-check-label" for="radioFemenino"> Femenino </label>
       </div>
@@ -35,6 +40,8 @@
         <input
           class="form-check-input"
           type="checkbox"
+          [(ngModel)]="persona.notificaciones"
+          name="notificaciones"
           role="switch"
           id="switchNotif"
           checked
@@ -55,6 +62,9 @@
           class="form-check-input"
           type="checkbox"
           id="checkTermCond"
+          [(ngModel)]="terminosYCondiciones"
+          required
+          name="terminosYCondiciones"
         />
         <label class="form-check-label" for="checkTermCond">
           Tértminos y condiciones de uso
@@ -66,9 +76,23 @@
   <!-- Boton submit -->
   <div class="row">
     <div class="col">
-      <button class="btn btn-primary float-end">
+      <button
+        class="btn btn-primary float-end"
+        [disabled]="miformulario.invalid"
+      >
         Guardar
       </button>
     </div>
   </div>
 </form>
+
+<h5>Valor del formulario</h5>
+<pre>{{ miformulario.value | json }}</pre>
+
+<h5>Persona</h5>
+<pre>{{ persona | json }}</pre>
+
+<h5>Valid</h5>
+<pre>{{ miformulario.valid }}</pre>
+
+<pre>Condiciones: </pre>

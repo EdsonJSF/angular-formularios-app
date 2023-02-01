@@ -1,1 +1,74 @@
-<app-header title="Switches">
+<app-header title="Switches"></app-header>
+
+<form #miformulario="ngForm">
+  <!-- Radios -->
+  <div class="row mb-3">
+    <div class="col-sm-3 col-from-label">Género</div>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="radioGenero"
+          id="radioMasculino"
+        />
+        <label class="form-check-label" for="radioMasculino"> Masculino </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="radioGenero"
+          id="radioFemenino"
+          checked
+        />
+        <label class="form-check-label" for="radioFemenino"> Femenino </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Switches -->
+  <div class="row mb-3">
+    <div class="col-sm-3 col-from-label">Notificaciones</div>
+    <div class="col-sm-9">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="switchNotif"
+          checked
+        />
+        <label class="form-check-label" for="switchNotif">
+          Quiero recibir notificaciones
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkboxes -->
+  <div class="row mb-3">
+    <div class="col-sm-3 col-from-label"></div>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="checkTermCond"
+        />
+        <label class="form-check-label" for="checkTermCond">
+          Tértminos y condiciones de uso
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boton submit -->
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-end">
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>

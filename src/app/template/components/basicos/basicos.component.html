@@ -1,5 +1,4 @@
-<h2>Template: <small>Básicos</small></h2>
-<hr />
+<app-header title="Básicos"></app-header>
 
 <div class="row">
   <div class="col">
@@ -63,7 +62,11 @@
 
       <div class="row">
         <div class="col">
-          <button type="submit" class="btn btn-primary float-end" [disabled]="miFormulario.invalid">
+          <button
+            type="submit"
+            class="btn btn-primary float-end"
+            [disabled]="miFormulario.invalid"
+          >
             Guardar
           </button>
         </div>

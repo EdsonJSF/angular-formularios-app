@@ -7,4 +7,5 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() title: string = '';
+  @Input() subTitle: string = '';
 }

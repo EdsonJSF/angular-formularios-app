@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basicos',
@@ -14,9 +14,10 @@ export class BasicosComponent implements OnInit {
   // });
 
   miFormulario: FormGroup = this.fb.group({
-    nombre: ['RTX 4080ti'],
-    precio: [0],
-    existencias: [0],
+    // nombre: [value, validSync, validAsync],
+    nombre: ['RTX 4080ti', [Validators.required, Validators.minLength(3)]],
+    precio: [0, [Validators.required, Validators.min(0)]],
+    existencias: [0, [Validators.required, Validators.min(0)]],
   });
 
   constructor(private fb: FormBuilder) {}

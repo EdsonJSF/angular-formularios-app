@@ -21,7 +21,12 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Precio</label>
         <div class="col-sm-9">
-          <input type="number" class="form-control" placeholder="Precio" />
+          <input
+            type="number"
+            class="form-control"
+            formControlName="precio"
+            placeholder="Precio"
+          />
           <span class="form-text text-danger">
             El precio debe de ser mayor o igual a 0
           </span>
@@ -32,7 +37,12 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Existencias</label>
         <div class="col-sm-9">
-          <input type="number" class="form-control" placeholder="Existencias" />
+          <input
+            type="number"
+            class="form-control"
+            formControlName="existencias"
+            placeholder="Existencias"
+          />
           <span class="form-text text-danger">
             La cantidad debe de ser mayor o igual a 0
           </span>

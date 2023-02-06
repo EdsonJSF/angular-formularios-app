@@ -13,7 +13,9 @@
             formControlName="nombre"
             placeholder="Nombre del Producto"
           />
-          <span class="form-text text-danger"> Debe de ser de 3 letras </span>
+          <span class="form-text text-danger" *ngIf="validField('nombre')">
+            Debe de ser de 3 letras
+          </span>
         </div>
       </div>
 
@@ -27,7 +29,7 @@
             formControlName="precio"
             placeholder="Precio"
           />
-          <span class="form-text text-danger">
+          <span class="form-text text-danger" *ngIf="validField('precio')">
             El precio debe de ser mayor o igual a 0
           </span>
         </div>
@@ -43,7 +45,7 @@
             formControlName="existencias"
             placeholder="Existencias"
           />
-          <span class="form-text text-danger">
+          <span class="form-text text-danger" *ngIf="validField('existencias')">
             La cantidad debe de ser mayor o igual a 0
           </span>
         </div>

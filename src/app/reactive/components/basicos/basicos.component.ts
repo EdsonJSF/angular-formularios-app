@@ -30,4 +30,13 @@ export class BasicosComponent implements OnInit {
       this.miFormulario.controls[name].touched
     );
   }
+
+  guardar() {
+    if (this.miFormulario.invalid) {
+      this.miFormulario.markAllAsTouched();
+      return;
+    }
+    console.log(this.miFormulario.value);
+    this.miFormulario.reset();
+  }
 }

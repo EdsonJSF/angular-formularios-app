@@ -15,10 +15,7 @@ import {
 export class DinamicosComponent {
   miFormulario: FormGroup = this.fb.group({
     nombre: [, [Validators.required, Validators.minLength(3)]],
-    favoritos: this.fb.array(
-      [['Metal Gear'], ['Death Stranding']],
-      Validators.required
-    ),
+    favoritos: this.fb.array([], Validators.required),
   });
 
   nuevoFavorito: FormControl = this.fb.control('', Validators.required);
@@ -47,6 +44,10 @@ export class DinamicosComponent {
       this.fb.control(this.nuevoFavorito.value, Validators.required)
     );
     this.nuevoFavorito.reset();
+  }
+
+  borrarFavorito(index: number) {
+    this.favoritosArr.removeAt(index);
   }
 
   guardar() {

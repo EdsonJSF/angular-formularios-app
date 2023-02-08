@@ -1,16 +1,28 @@
 <app-header title="Reactivos" subTitle="Switches"></app-header>
 
-<form autocomplete="off">
+<form autocomplete="off" [formGroup]="miFormulario">
   <!-- Radios -->
   <div class="row mb-3">
     <div class="col-sm-3 col-from-label">Género</div>
     <div class="col-sm-9">
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="radioMasculino" />
+        <input
+          type="radio"
+          id="radioMasculino"
+          class="form-check-input"
+          value="M"
+          formControlName="genero"
+        />
         <label class="form-check-label" for="radioMasculino"> Masculino </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" />
+        <input
+          type="radio"
+          id="radioFemenino"
+          class="form-check-input"
+          value="F"
+          formControlName="genero"
+        />
         <label class="form-check-label" for="radioFemenino"> Femenino </label>
       </div>
     </div>
@@ -21,7 +33,12 @@
     <div class="col-sm-3 col-from-label">Notificaciones</div>
     <div class="col-sm-9">
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" />
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          formControlName="notificaciones"
+        />
         <label class="form-check-label" for="switchNotif">
           Quiero recibir notificaciones
         </label>
@@ -34,7 +51,12 @@
     <div class="col-sm-3 col-from-label"></div>
     <div class="col-sm-9">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="checkTermCond" />
+        <input
+          type="checkbox"
+          id="checkTermCond"
+          class="form-check-input"
+          formControlName="condiciones"
+        />
         <label class="form-check-label" for="checkTermCond">
           Tértminos y condiciones de uso
         </label>
@@ -50,13 +72,11 @@
   </div>
 </form>
 
-<!-- <h5>Valor del formulario</h5>
-<pre>{{ miformulario.value | json }}</pre>
+<h5>Valor del formulario</h5>
+<pre>{{ miFormulario.value | json }}</pre>
 
 <h5>Persona</h5>
 <pre>{{ persona | json }}</pre>
 
 <h5>Valid</h5>
-<pre>{{ miformulario.valid }}</pre>
-
-<pre>Condiciones: </pre> -->
+<pre>{{ miFormulario.valid }}</pre>

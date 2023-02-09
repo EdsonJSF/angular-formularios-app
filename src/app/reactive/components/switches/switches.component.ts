@@ -21,6 +21,21 @@ export class SwitchesComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.miFormulario.reset({ ...this.persona, condiciones: false });
+    this.miFormulario.reset({
+      ...this.persona,
+      condiciones: false,
+    });
+
+    this.miFormulario.valueChanges.subscribe(({ condiciones, ...rest }) => {
+      this.persona = rest;
+    });
+  }
+
+  guardar() {
+    if (this.miFormulario.invalid) return;
+    const formValue = { ...this.miFormulario.value };
+    const persona = { ...this.persona };
+    console.log('formulario', formValue);
+    console.log('persona', persona);
   }
 }

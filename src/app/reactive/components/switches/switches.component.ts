@@ -31,11 +31,27 @@ export class SwitchesComponent implements OnInit {
     });
   }
 
+  validForm(nameField: string) {
+    return (
+      this.miFormulario.controls[nameField].errors &&
+      this.miFormulario.controls[nameField].touched
+    );
+  }
+
   guardar() {
-    if (this.miFormulario.invalid) return;
+    if (this.miFormulario.invalid) {
+      this.miFormulario.markAllAsTouched();
+      return;
+    }
     const formValue = { ...this.miFormulario.value };
     const persona = { ...this.persona };
+
     console.log('formulario', formValue);
     console.log('persona', persona);
+
+    this.miFormulario.reset({
+      ...persona,
+      noticaciones: false,
+    });
   }
 }

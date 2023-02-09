@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { ReactiveRoutingModule } from './reactive-routing.module';
 import { BasicosComponent } from './components/basicos/basicos.component';
@@ -9,11 +10,13 @@ import { SwitchesComponent } from './components/switches/switches.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    BasicosComponent,
-    DinamicosComponent,
-    SwitchesComponent
+  declarations: [BasicosComponent, DinamicosComponent, SwitchesComponent],
+  imports: [
+    CommonModule,
+    ReactiveRoutingModule,
+    ReactiveFormsModule,
+    SharedModule,
+    RouterModule,
   ],
-  imports: [CommonModule, ReactiveRoutingModule, ReactiveFormsModule,SharedModule],
 })
 export class ReactiveModule {}

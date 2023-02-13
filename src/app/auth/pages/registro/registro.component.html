@@ -30,7 +30,11 @@
             id="email"
             class="form-control"
             placeholder="Email de ususario"
+            formControlName="email"
           />
+          <span class="form-text text-danger" *ngIf="validForm('email')">
+            El correo es obligatorio
+          </span>
         </div>
       </div>
 
@@ -87,3 +91,6 @@
 
 <h5>Nombre</h5>
 <span>{{ miFormulario.controls["nombre"].errors | json }}</span>
+
+<h5>Email</h5>
+<span>{{ miFormulario.controls["email"].errors | json }}</span>

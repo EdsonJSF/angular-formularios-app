@@ -10,11 +10,16 @@ import { emailPattern, noPuedeSerStrider, nombrePattern } from 'src/app/shared/v
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent implements OnInit {
-  miFormulario: FormGroup = this.fb.group({
-    nombre: [, [Validators.required, Validators.pattern(this.validServ.nombrePattern)]],
-    email: [, [Validators.required, Validators.pattern(this.validServ.emailPattern)]],
-    username: [, [Validators.required, this.validServ.noPuedeSerStrider]],
-  });
+  miFormulario: FormGroup = this.fb.group(
+    {
+      nombre: [, [Validators.required, Validators.pattern(this.validServ.nombrePattern)]],
+      email: [, [Validators.required, Validators.pattern(this.validServ.emailPattern)]],
+      username: [, [Validators.required, this.validServ.noPuedeSerStrider]],
+      password1: [, [Validators.required, Validators.minLength(6)]],
+      password2: [, [Validators.required]],
+    },
+    { validators: [this.validServ.camposIguales('password1', 'password2')]}
+  );
   constructor(private fb: FormBuilder, private validServ: ValidatorsService) {}
 
   ngOnInit(): void {
@@ -33,11 +38,12 @@ export class RegistroComponent implements OnInit {
   }
 
   crear() {
-    console.log(this.miFormulario.value);
-
     if (this.miFormulario.invalid) {
+      console.log('Formulario Invalido');
+
       this.miFormulario.markAllAsTouched();
       return;
     }
+    console.log(this.miFormulario.value);
   }
 }

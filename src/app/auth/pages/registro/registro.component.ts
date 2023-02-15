@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidatorsService } from '../../../shared/validators/validators.service';
 import { emailPattern, noPuedeSerStrider, nombrePattern } from 'src/app/shared/validators/validations';
+import { EmailValidatorService } from '../../../shared/validators/email-validator.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,14 +14,14 @@ export class RegistroComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group(
     {
       nombre: [, [Validators.required, Validators.pattern(this.validServ.nombrePattern)]],
-      email: [, [Validators.required, Validators.pattern(this.validServ.emailPattern)]],
+      email: [, [Validators.required, Validators.pattern(this.validServ.emailPattern)], [this.emailValidator]],
       username: [, [Validators.required, this.validServ.noPuedeSerStrider]],
       password1: [, [Validators.required, Validators.minLength(6)]],
       password2: [, [Validators.required]],
     },
     { validators: [this.validServ.camposIguales('password1', 'password2')]}
   );
-  constructor(private fb: FormBuilder, private validServ: ValidatorsService) {}
+  constructor(private fb: FormBuilder, private validServ: ValidatorsService, private emailValidator: EmailValidatorService) {}
 
   ngOnInit(): void {
     this.miFormulario.reset({

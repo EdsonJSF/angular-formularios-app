@@ -34,8 +34,14 @@
             formControlName="email"
           />
 
-          <span class="form-text text-danger" *ngIf="validForm('email')">
+          <span class="form-text text-danger" *ngIf="emailTypeError('required')">
             El correo es obligatorio
+          </span>
+          <span class="form-text text-danger" *ngIf="emailTypeError('pattern')">
+            El valor no tiene formato de correo
+          </span>
+          <span class="form-text text-danger" *ngIf="emailTypeError('emailTomado')">
+            El correo ya fue tomado
           </span>
         </div>
       </div>

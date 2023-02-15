@@ -19,9 +19,14 @@ export class RegistroComponent implements OnInit {
       password1: [, [Validators.required, Validators.minLength(6)]],
       password2: [, [Validators.required]],
     },
-    { validators: [this.validServ.camposIguales('password1', 'password2')]}
+    { validators: [this.validServ.camposIguales('password1', 'password2')] }
   );
-  constructor(private fb: FormBuilder, private validServ: ValidatorsService, private emailValidator: EmailValidatorService) {}
+
+  constructor(
+    private fb: FormBuilder,
+    private validServ: ValidatorsService,
+    private emailValidator: EmailValidatorService
+  ) {}
 
   ngOnInit(): void {
     this.miFormulario.reset({
@@ -37,6 +42,13 @@ export class RegistroComponent implements OnInit {
     return (
       this.miFormulario.controls[nameField].errors &&
       this.miFormulario.controls[nameField].touched
+    );
+  }
+
+  emailTypeError(typeError: string) {
+    return (
+      this.miFormulario.get('email')?.errors?.[typeError] &&
+      this.miFormulario.controls['email'].touched
     );
   }
 

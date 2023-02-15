@@ -96,18 +96,23 @@
 
       <div class="row">
         <div class="col">
-          <button type="submit" class="btn btn-primary float-end">Crear</button>
+          <button
+            type="submit"
+            class="btn btn-primary float-end"
+            [disabled]="miFormulario.pending"
+          >
+            Crear
+          </button>
         </div>
       </div>
     </form>
   </div>
 </div>
 
-<h4>Form Valid</h4>
-<span>{{ miFormulario.valid }}</span>
-
-<h4>Form Errors</h4>
-<span>{{ miFormulario.errors | json }}</span>
+<h4>Form Valid: {{ miFormulario.valid }}</h4>
+<h4>Form Status: {{ miFormulario.status }}</h4>
+<h4>Form Pending: {{ miFormulario.pending }}</h4>
+<h4>Form Errors: {{ miFormulario.errors | json }}</h4>
 
 <h5>Nombre</h5>
 <span>{{ miFormulario.controls["nombre"].errors | json }}</span>

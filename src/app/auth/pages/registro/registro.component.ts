@@ -22,6 +22,17 @@ export class RegistroComponent implements OnInit {
     { validators: [this.validServ.camposIguales('password1', 'password2')] }
   );
 
+  get emailTypeError(): string {
+    if (this.miFormulario.get('email')?.errors?.['required']) {
+      return 'El correo es obligatorio';
+    } else if (this.miFormulario.get('email')?.errors?.['pattern']) {
+      return 'El valor no tiene formato de correo';
+    } else if (this.miFormulario.get('email')?.errors?.['emailTomado']) {
+      return 'El correo ya fue tomado';
+    }
+    return "";
+  }
+
   constructor(
     private fb: FormBuilder,
     private validServ: ValidatorsService,
@@ -42,13 +53,6 @@ export class RegistroComponent implements OnInit {
     return (
       this.miFormulario.controls[nameField].errors &&
       this.miFormulario.controls[nameField].touched
-    );
-  }
-
-  emailTypeError(typeError: string) {
-    return (
-      this.miFormulario.get('email')?.errors?.[typeError] &&
-      this.miFormulario.controls['email'].touched
     );
   }
 
